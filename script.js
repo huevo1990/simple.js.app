@@ -19,7 +19,7 @@ for (let i=0; i < pokemon.length; i++) {
 
 for (let i=0; i < pokemon.length; i++) {
   if (pokemon[i].height < 3) {
-      document.write(`<p> ${pokemon[i].name} (height: ${pokemon[i].height}") - I am the shortest Pokemon on the list! </p>`);
+      document.write(`<p> ${pokemon[i].name} (height: ${pokemon[i].height}") - wow, that's the shortest Pokemon on the list! </p>`);
   } else {
       document.write(`<p> ${pokemon[i].name} (height: ${pokemon[i].height}")</p>`);
   }
