@@ -1,4 +1,4 @@
-pokemonRepository = (function () {
+const pokemonRepository = (function () {
    let pokemonlist = [
     { name: 'Bulbasaur', height: '7', types: ['Grass', 'Poison']},
     { name: 'Blastoise', height: '6', types: 'water'},
@@ -11,17 +11,16 @@ pokemonRepository = (function () {
     return pokemonlist;
   }
 
-  function add(pokemon)
-  {pokemonlist.push(pokemon)
-
+  function add(pokemon){
+    pokemonlist.push(pokemon)
+  }
   return {
     getAll: getAll,
     add: add
   }
-  pokemonlist.forEach(function(name) {
+
+})();
+
+pokemonRepository.getAll().forEach(function(pokemon) {
     console.log(pokemon.name + 'is' + pokemon.height + 'height' + pokemon.types + 'type');
   });
-
-  console.log( pokemonRepository.getAll() );
-  pokemonRepository.add(item);
-})
