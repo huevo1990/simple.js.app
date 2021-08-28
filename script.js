@@ -22,5 +22,5 @@ const pokemonRepository = (function () {
 })();
 
 pokemonRepository.getAll().forEach(function(pokemon) {
-    console.log(pokemon.name + 'is' + pokemon.height + 'height' + pokemon.types + 'type');
+    console.log(pokemon.name + ' is ' + pokemon.height + ' height ' + pokemon.types + ' type ');
   });
