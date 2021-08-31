@@ -21,11 +21,11 @@ let pokemonRepository = (function () {
 
 
   function addListItem(pokemon){
-    let pokemonList = document.querySelector(".pokemon-list");
-    let listpokemon = document.createElement("li");
-    let button = document.createElement("button");
-    button.innerText= pokemon.name;
-    button.classList.add("button-class");
+    let pokemonList = document.querySelector('.pokemon-list');
+    let listpokemon = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText= "pokemon.name";
+    button.classList.add('button-class');
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
 
@@ -39,13 +39,13 @@ let pokemonRepository = (function () {
     add: add,
     addlistItem: addListItem
   };
-  })();
+  }) ();
 
-  pokemonRepository.add({name:"Pikachu", height: 1.2, types: ["electric"] });
+  pokemonRepository.add ({ name: "Pikachu", height: 1.2, types: [ "electric" ] });
 
     console.log(pokemonRepository.getAll());
 
-  pokemonRepository.getAll().forEach(function(pokemon) {
+  pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
 
   });
