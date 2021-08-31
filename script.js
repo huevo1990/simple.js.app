@@ -1,4 +1,4 @@
-const pokemonRepository = (function () {
+let pokemonRepository = (function () {
    let pokemonlist = [
     { name: 'Bulbasaur', height: '7', types: ['Grass', 'Poison']},
     { name: 'Blastoise', height: '6', types: 'water'},
@@ -24,7 +24,7 @@ const pokemonRepository = (function () {
     let pokemonList = document.querySelector(".pokemon-list");
     let listpokemon = document.createElement("li");
     let button = document.createElement("button");
-    button.innerText= "pokemon.name";
+    button.innerText= pokemon.name;
     button.classList.add("button-class");
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
@@ -41,7 +41,7 @@ const pokemonRepository = (function () {
   };
   })();
 
-  pokemonRepository.add({name:"Pikachu", height: 1.2, types ["electric"] });
+  pokemonRepository.add({name:"Pikachu", height: 1.2, types: ["electric"] });
 
     console.log(pokemonRepository.getAll());
 
