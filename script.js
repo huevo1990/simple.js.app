@@ -24,7 +24,7 @@ let pokemonRepository = (function () {
     let pokemonList = document.querySelector('.pokemon-list');
     let listpokemon = document.createElement('li');
     let button = document.createElement('button');
-    button.innerText= "pokemon.name";
+    button.innerText = "pokemon.name";
     button.classList.add('button-class');
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
@@ -38,7 +38,7 @@ let pokemonRepository = (function () {
     getAll: getAll,
     add: add,
     addlistItem: addListItem
-  };
+    };
   }) ();
 
   pokemonRepository.add ({ name: "Pikachu", height: 1.2, types: [ "electric" ] });
