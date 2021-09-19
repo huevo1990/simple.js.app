@@ -2,17 +2,12 @@ let pokemonRepository = (function () {
    let pokemonlist = [];
    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=30';
 
-  ];
-
   function getAll() {
     return pokemonlist;
   }
 
   function add(pokemon) {
-    if (
-      typeof pokemon ==="object" &&
-      "name" in pokemon &&
-    ) {
+    if (typeof pokemon ==="object" &&"name" in pokemon) {
       pokemonList.push(pokemon);
     } else {
       console.log("pokemon is not correct");
@@ -39,32 +34,31 @@ let pokemonRepository = (function () {
   }
 
     function loadlist() {
-      return fetch(apiUrl).then(function (respone) {
+      return fetch(apiUrl).then(function (resposne) {
         return response.json();
       }).then(function (json) {
         json.results.forEach(function (item) {
-          let pokemon = {
+          var pokemon = {
             name: item.name,
             detailsUrl: item.url
           };
           add(pokemon);
-          console.log(pokemon);
         });
       }).catch(function (e) {
         console.error(e);
-      }
     })
-    }
+  }
+
 
     function loadDetails(item) {
-      let url = item.detailsUrl;
+      var url = item.detailsUrl;
       return fetch(url.then(function (response) {
         return response.json();
       }).then(function (details) {
         // Now we add the deailts to the item
         item.imageUrl = details.sprites.front_default;
-        item.height=details.height;
-        item.types = details.types;
+        item.height= details.height;
+        item.types = Object.keys (details.types;
       }).catch(function (e) {
         console.error(e);
       });
