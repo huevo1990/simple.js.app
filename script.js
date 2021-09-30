@@ -1,5 +1,5 @@
 let pokemonRepository = (function () {
-   let pokemonlist = [];
+  let pokemonlist = [];
    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=30';
 
   function getAll() {
@@ -52,13 +52,13 @@ let pokemonRepository = (function () {
 
     function loadDetails(item) {
       var url = item.detailsUrl;
-      return fetch(url.then(function (response) {
+      return fetch(url).then(function (response) {
         return response.json();
       }).then(function (details) {
         // Now we add the deailts to the item
         item.imageUrl = details.sprites.front_default;
-        item.height= details.height;
-        item.types = Object.keys (details.types;
+        item.height = details.height;
+        item.types = details.types;
       }).catch(function (e) {
         console.error(e);
       });
@@ -78,7 +78,7 @@ let pokemonRepository = (function () {
     loadDetails: loadDetails,
     showDetails: showDetails
     };
-  }) ();
+  })();
 
   //pokemonRepository.add ({ name: "Pikachu", height: 1.2, types: [ "electric" ] });
 
