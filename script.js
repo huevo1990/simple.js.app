@@ -8,7 +8,7 @@ let pokemonRepository = (function () {
 
   function add(pokemon) {
     if (typeof pokemon ==="object" &&"name" in pokemon) {
-      pokemonList.push(pokemon);
+      pokemonlist.push(pokemon);
     } else {
       console.log("pokemon is not correct");
     }
@@ -21,24 +21,24 @@ let pokemonRepository = (function () {
 
 
   function addListItem(pokemon){
-    let pokemonList = document.querySelector('.pokemon-list');
+    let pokemonlist = document.querySelector('.pokemon-list');
     let listpokemon = document.createElement('li');
     let button = document.createElement('button');
     button.innerText = "pokemon.name";
     button.classList.add('button-class');
     listpokemon.appendChild(button);
-    pokemonList.appendChild(listpokemon);
+    pokemonlist.appendChild(listpokemon);
     button.addEventListener('click', function(){
       showDetails(pokemon);
     });
   }
 
     function loadlist() {
-      return fetch(apiUrl).then(function (resposne) {
+      return fetch(apiUrl).then(function (response) {
         return response.json();
       }).then(function (json) {
         json.results.forEach(function (item) {
-          var pokemon = {
+          let pokemon = {
             name: item.name,
             detailsUrl: item.url
           };
@@ -73,8 +73,8 @@ let pokemonRepository = (function () {
   return {
     getAll: getAll,
     add: add,
-    addlistItem: addListItem,
-    loadList: loadList,
+    addListItem: addListItem,
+    loadlist: loadlist,
     loadDetails: loadDetails,
     showDetails: showDetails
     };
