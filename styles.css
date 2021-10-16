@@ -56,12 +56,26 @@ body {
   margin-bottom: 0;
 }
 
-#modal-container {
-  display: none;
-}
-
 #modal-container.is-visible {
   display: block;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.pokemon-list li {
+  margin: 20px auto;
+}
+
+.pokemon-button {
+  min-width: 300px;
+  padding: 5px 10px;
+  color: white;
+  background-color: #4caf50;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
 }
 
 .button-class {
