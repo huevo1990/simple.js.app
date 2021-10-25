@@ -1,6 +1,20 @@
-html,
 body {
+  background-color: #FFF8DC;
   font-family: Arial, sans-serif;
+}
+
+.navbar-brand {
+  font-size: 50px;
+  font-family: "lucida console";
+}
+.navbar {
+  background-color: #3CB371;
+}
+
+.pokemon-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 #modal-container {

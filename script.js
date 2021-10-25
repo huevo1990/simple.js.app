@@ -1,11 +1,13 @@
 let pokemonRepository = (function () {
   let pokemonlist = [];
-   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=30';
+   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
+   //function that returns all pokemon objects
   function getAll() {
     return pokemonlist;
   }
 
+  //function that adds pokemon objects to the pokemonList
   function add(pokemon) {
     if (typeof pokemon ==="object" &&"name" in pokemon) {
       pokemonlist.push(pokemon);
@@ -15,7 +17,7 @@ let pokemonRepository = (function () {
     pokemonlist.push(pokemon)
   }
 
-
+  //function that creates the pokemon list on the webpage
   function addListItem(pokemon){
     let pokemonlist = document.querySelector('.pokemon-list');
     let listpokemon = document.createElement('li');
@@ -29,6 +31,7 @@ let pokemonRepository = (function () {
     });
   }
 
+  //function that loads the API
     function loadlist() {
       return fetch(apiUrl).then(function (response) {
         return response.json();
@@ -102,10 +105,6 @@ let pokemonRepository = (function () {
       modalContainer.classList.remove('is-visible');
 }
 
-    document.querySelector('#show-modal').addEventListener
-    ('click',() => {
-      showModal('Modal title', 'This is the modal content!');
-    });
 
     window.addEventListener('keydown', (e) => {
       let modalContainer = document.querySelector
