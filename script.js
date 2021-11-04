@@ -74,32 +74,46 @@ let pokemonRepository = (function () {
 
     let modalContainer = document.querySelector('#pokemonModalContainer');
 
-    function showModal(pokemon) {
-      let modalBody = $("modal-body");
-      let modalTitle = $(".modal-title");
-      let modalHeader = $(".modal-header");
+  	function showModal(pokemon) {
+  		let modalTitle = document.querySelector('.modal-title');
+  		let modalBody = document.querySelector('.modal-body');
 
-      modalTitle.empty();
-      modalBody.empty();
+  		modalTitle.innerText = '';
+  		modalBody.innerText = '';
+
+  		//create element for name in modal
+  		let nameElement = document.createElement('h1');
+  		nameElement.innerText = pokemon.name;
+  		nameElement.classList.add('name-element');
+
+  		//create img in modal content
+  		let imageElement = document.createElement('img');
+  		imageElement.src = pokemon.imageUrl;
+  		imageElement.classList.add('modal-img');
+
+  		//create element for height in modal content
+  		let heightElement = document.createElement('p');
+  		heightElement.innerText = 'Height: ' + pokemon.height
+
+  		//create element for pokemon in modal content
+  		let pokemonTypes = [];
+
+  			Object.keys(pokemon.types).forEach(key => {
+  				pokemonTypes.push(' ' + pokemon.types[key].type.name);
+  			});
+
+  		let typesElement = document.createElement('p');
+  		typesElement.innerText = 'Type: ' + pokemonTypes;
+  		typesElement.classList.add('types-element');
 
 
+  		modalTitle.append(nameElement);
+  		modalBody.append(imageElement);
+  		modalBody.append(heightElement);
+  		modalBody.append(typesElement);
 
-      let nameElement = $("<h1>" + pokemon.name + "</h1>");
-      let heightElement = $("<p>" + "height : " + pokemon.height + "</p");
-      let imageElement = $('<img class="modal-image" style="width:50%">');
-      let typesElement = $("<p>" + "types : " + pokemon.types + "</p>");
-
-
-
-      modalTitle.append(nameElement);
-      modalBody.append(imageElement);
-      modalBody.append(heightElement);
-      modalBody.append(typesElement);
-
-
-
-      modalContainer.classList.add('is-visible');
-}
+  		modalContainer.classList.add('is-visible');
+  	}
 
   return {
     getAll: getAll,
