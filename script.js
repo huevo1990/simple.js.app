@@ -38,10 +38,10 @@ let pokemonRepository = (function () {
       return fetch(apiUrl).then(function (response) {
         return response.json();
       }).then(function (json) {
-        json.results.forEach(function (item) {
-          let pokemon = {
-            name: item.name,
-            detailsUrl: item.url
+            json.results.forEach(function (item) {
+              let pokemon = {
+                name: item.name,
+                detailsUrl: item.url
           };
           add(pokemon);
         });
@@ -51,23 +51,22 @@ let pokemonRepository = (function () {
   }
 
 
-    function loadDetails(item) {
-      let url = item.detailsUrl;
+    function loadDetails(pokemon) {
+      let url = pokemon.detailsUrl;
       return fetch(url).then(function (response) {
         return response.json();
       }).then(function (details) {
-        // Now we add the details to the item
-      pokemon.imageUrl = details.sprites.front_default;
-      pokemon.height = details.height;
-      pokemon.types = details.types;
+          pokemon.imageUrl = details.sprites.front_default;
+          pokemon.height = details.height;
+          pokemon.types = details.types;
       }).catch(function (e) {
-        console.error(e);
+          console.error(e);
       });
     }
 
     function showDetails(pokemon) {
-      loadDetails(pokemon).then(function () {
-        showModal(pokemon.name, pokemon.height, pokemon.imageUrl);
+          loadDetails(pokemon).then(function () {
+            showModal(pokemon);
       });
     }
 
@@ -87,15 +86,15 @@ let pokemonRepository = (function () {
 
       let nameElement = $("<h1>" + pokemon.name + "</h1>");
       let heightElement = $("<p>" + "height : " + pokemon.height + "</p");
-      let imgElement = $('<img class="modal-img" style="width:50%">');
-      let typesElement = $("<p>" + "types : " + item.types + "</p>");
+      let imageElement = $('<img class="modal-image" style="width:50%">');
+      let typesElement = $("<p>" + "types : " + pokemon.types + "</p>");
 
 
 
       modalTitle.append(nameElement);
       modalBody.append(imageElement);
       modalBody.append(heightElement);
-      modalBody.appen(typesElement);
+      modalBody.append(typesElement);
 
 
 
@@ -112,7 +111,7 @@ let pokemonRepository = (function () {
     };
   })();
 
-  //pokemonRepository.add ({ name: "Pikachu", height: 1.2, types: [ "electric" ] });
+
 
     //console.log(pokemonRepository.getAll());
   pokemonRepository.loadlist().then(function() {
