@@ -115,6 +115,7 @@ let pokemonRepository = (function () {
   		modalContainer.classList.add('is-visible');
   	}
 
+
   return {
     getAll: getAll,
     add: add,
