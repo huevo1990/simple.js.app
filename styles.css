@@ -2,6 +2,7 @@ body {
   background-color: #FFF8DC;
   font-family: Arial, sans-serif;
 }
+
 /*--navbar--*/
 
 .navbar-brand {
@@ -34,7 +35,7 @@ body {
 
 /*--modal*/
 
-.modal-title{
+.modal-title {
 	color: #FFCB05;
 }
 
@@ -52,7 +53,7 @@ body {
   align-self: center;
 }
 
-.modal-footer{
+.modal-footer {
 	border-left: 20px solid #303030;
 	border-right: 20px solid #303030;
 	border-bottom: 20px solid #303030;
