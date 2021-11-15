@@ -8,7 +8,7 @@ let pokemonRepository = (function () {
 
   //function that adds pokemon objects to the pokemonList
   function add(pokemon) {
-    if (typeof pokemon ==="object" &&"name" in pokemon) {
+    if (typeof pokemon ==='object' &&"name" in pokemon) {
       pokemonlist.push(pokemon);
     } else {
       console.log("pokemon is not correct");
