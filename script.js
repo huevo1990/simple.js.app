@@ -74,54 +74,54 @@ let pokemonRepository = (function () {
     let modalContainer = document.querySelector('#pokemonModalContainer');
 
   	function showModal(pokemon) {
-  		let modalTitle = document.querySelector('.modal-title');
-  		let modalBody = document.querySelector('.modal-body');
+      let modalTitle = document.querySelector('.modal-title');
+      let modalBody = document.querySelector('.modal-body');
 
-  		modalTitle.innerText = '';
-  		modalBody.innerText = '';
+      modalTitle.innerText = '';
+      modalBody.innerText = '';
 
   		//create element for name in modal
-  		let nameElement = document.createElement('h1');
-  		nameElement.innerText = pokemon.name;
-  		nameElement.classList.add('name-element');
+      let nameElement = document.createElement('h1');
+      nameElement.innerText = pokemon.name;
+      nameElement.classList.add('name-element');
 
   		//create img in modal content
-  		let imageElement = document.createElement('img');
-  		imageElement.src = pokemon.imageUrl;
-  		imageElement.classList.add('modal-img');
+      let imageElement = document.createElement('img');
+      imageElement.src = pokemon.imageUrl;
+      imageElement.classList.add('modal-img');
 
   		//create element for height in modal content
-  		let heightElement = document.createElement('p');
-  		heightElement.innerText = 'Height: ' + pokemon.height
+      let heightElement = document.createElement('p');
+      heightElement.innerText = 'Height: ' + pokemon.height
 
   		//create element for pokemon in modal content
-  		let pokemonTypes = [];
+      let pokemonTypes = [];
 
-  			Object.keys(pokemon.types).forEach(key => {
-  				pokemonTypes.push(' ' + pokemon.types[key].type.name);
-  			});
+        Object.keys(pokemon.types).forEach(key => {
+          pokemonTypes.push(' ' + pokemon.types[key].type.name);
+        });
 
-  		let typesElement = document.createElement('p');
-  		typesElement.innerText = 'Type: ' + pokemonTypes;
-  		typesElement.classList.add('types-element');
+      let typesElement = document.createElement('p');
+      typesElement.innerText = 'Type: ' + pokemonTypes;
+      typesElement.classList.add('types-element');
 
 
-  		modalTitle.append(nameElement);
-  		modalBody.append(imageElement);
-  		modalBody.append(heightElement);
-  		modalBody.append(typesElement);
+      modalTitle.append(nameElement);
+      modalBody.append(imageElement);
+      modalBody.append(heightElement);
+      modalBody.append(typesElement);
 
-  		modalContainer.classList.add('is-visible');
+      modalContainer.classList.add('is-visible');
   	}
 
 
-  return {
-    getAll: getAll,
-    add: add,
-    addListItem: addListItem,
-    loadlist: loadlist,
-    loadDetails: loadDetails,
-    showDetails: showDetails,
+    return {
+      getAll: getAll,
+      add: add,
+      addListItem: addListItem,
+      loadlist: loadlist,
+      loadDetails: loadDetails,
+      showDetails: showDetails,
     };
   })();
 
